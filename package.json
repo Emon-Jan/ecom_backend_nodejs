@@ -6,7 +6,7 @@
     "start": "nodemon ./bin/www",
     "start-dev": "nodemon -r dotenv/config ./dist/index.bundle.js",
     "start-dev-debug": "DEBUG=ecommerce-backend:serv nodemon -r dotenv/config ./dist/index.bundle.js",
-    "dev:build": "webpack -w --mode=development"
+    "dev:build": "webpack"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
