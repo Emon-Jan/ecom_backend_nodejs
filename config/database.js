@@ -3,11 +3,17 @@ import constant from "./constants";
 
 mongoose.Promise = global.Promise;
 
+const MONGO_OPTIONS = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useMongoClient: true,
+};
+
 mongoose
-  .connect(constant.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(constant.DB_URI, MONGO_OPTIONS)
   .then(() => {
-    console.log("...Database Connected...");
+    debug("...Database Connected...");
   })
   .catch((err) => {
-    console.log("Connection falied: ", err);
+    debug("Connection falied: ", err);
   });
