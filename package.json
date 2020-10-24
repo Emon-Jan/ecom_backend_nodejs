@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "start-dev": "nodemon ./dist/index.bundle.js",
+    "start-dev": "nodemon -r dotenv/config ./dist/index.bundle.js",
+    "start-dev-debug": "DEBUG=ecommerce-backend:serv nodemon -r dotenv/config ./dist/index.bundle.js",
     "dev:build": "webpack -w --mode=development"
   },
   "dependencies": {
@@ -12,6 +13,7 @@
     "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "helmet": "^4.1.0",
     "http-errors": "~1.6.3",
