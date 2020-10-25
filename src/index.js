@@ -1,26 +1,23 @@
-import express from "express";
-import createError from "http-errors";
-import path from "path";
 import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+import createError from "http-errors";
+import express from "express";
 import logger from "morgan";
+import path from "path";
+
 import "../config/database";
+import modules from "./modules";
 
 const app = express();
 
 app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use((req, res, next) => {
-  console.log("Logging");
-  next();
-});
-
-app.use("/", (req, res, next) => {
-  res.send("Hello World!");
-});
+// Passing the express instance to modules for handling requests
+modules(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
