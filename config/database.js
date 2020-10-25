@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
 import constant from "./constants";
 
+const debug = require("debug")("ecommerce-backend:server");
+
 mongoose.Promise = global.Promise;
 
 const MONGO_OPTIONS = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useMongoClient: true,
 };
 
 mongoose
