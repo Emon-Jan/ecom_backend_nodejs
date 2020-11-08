@@ -2,6 +2,7 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import createError from "http-errors";
 import express from "express";
+import cors from "cors";
 import logger from "morgan";
 import path from "path";
 
@@ -11,6 +12,7 @@ import modules from "./modules";
 const app = express();
 
 app.use(logger("dev"));
+app.use(cors({ origin: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -32,7 +34,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.send(err.message);
 });
 
 module.exports = app;
