@@ -72,6 +72,9 @@ web_modules/
 .env
 .env.test
 
+# vscode rest client file
+test.http
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
