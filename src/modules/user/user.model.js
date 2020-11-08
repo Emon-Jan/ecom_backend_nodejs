@@ -5,12 +5,10 @@ const userSchema = new Schema({
     type: String,
     min: 4,
     max: 255,
-    required: true,
   },
   email: {
     type: String,
     trim: true,
-    required: true,
   },
   password: {
     type: String,
@@ -20,8 +18,9 @@ const userSchema = new Schema({
   },
   phone: {
     type: String,
-    min: 4,
+    min: 7,
     max: 255,
+    required: true,
   },
   address: {
     presentAddress: { type: String },
