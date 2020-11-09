@@ -8,6 +8,8 @@ mongoose.Promise = global.Promise;
 const MONGO_OPTIONS = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
 };
 
 mongoose
