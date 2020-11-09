@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose";
 import shortid from "shortid";
 
 const orderSchema = new Schema({
-  orderId: { type: String, default: shortid.generate() },
+  orderId: { type: String, default: shortid.generate(), unique: true },
   totalPrice: {
     type: Number,
     required: true,
