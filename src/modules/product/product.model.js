@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const productSchema = new Schema({
-  pName: {
+  title: {
     type: String,
     min: 2,
     max: 255,
@@ -11,7 +11,7 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
-  price: {
+  originalPrice: {
     type: Number,
     required: true,
   },
@@ -19,7 +19,7 @@ const productSchema = new Schema({
   shippingCharge: Number,
   color: String,
   size: String,
-  active: { type: Boolean, default: true },
+  active: { type: Boolean, default: false },
 });
 
 export default model("Product", productSchema);
