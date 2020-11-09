@@ -1,10 +1,14 @@
 const devConfig = {
   DB_URI: process.env.DATABASE_MONGO_URI,
+  SECRET_KEY: process.env.SECRET,
 };
 
 const testConfig = {};
 
-const prodConfig = {};
+const prodConfig = {
+  DB_URI: process.env.DATABASE_MONGO_URI,
+  SECRET_KEY: process.env.SECRET,
+};
 
 const defaultConfig = {
   PORT: process.env.PORT,
