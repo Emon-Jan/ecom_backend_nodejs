@@ -4,6 +4,6 @@ import * as userController from "./user.controller";
 
 const routes = Router();
 
-routes.post("/signUp", userController.signUp);
+routes.post("/signup", userController.signUp);
 
 module.exports = routes;
