@@ -16,6 +16,7 @@ mongoose
   .connect(constant.DB_URI, MONGO_OPTIONS)
   .then(() => {
     debug("...Database Connected...");
+    console.log("...Database Connected to:", constant.DB_URI);
   })
   .catch((err) => {
     debug("Connection falied: ", err);
