@@ -1,3 +1,4 @@
+import { extendWith } from "lodash";
 import mongoose from "mongoose";
 import constant from "./constants";
 
@@ -20,4 +21,6 @@ mongoose
   })
   .catch((err) => {
     debug("Connection falied: ", err);
+    console.log("...Database connection failed", constant.DB_URI);
+    process.exit(1);
   });
