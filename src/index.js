@@ -4,13 +4,13 @@ import createError from "http-errors";
 import express from "express";
 import cors from "cors";
 import path from "path";
+import logger from "morgan";
 
 import "../config/database";
 import modules from "./modules";
 
 const app = express();
 if (process.env.NODE_ENV === "development") {
-  import logger from "morgan";
   app.use(logger("dev"));
 }
 
