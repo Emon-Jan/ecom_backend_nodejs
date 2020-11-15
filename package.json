@@ -3,11 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
     "clean": "rimraf dist",
-    "start-dev": "npm run dev:build && nodemon -r dotenv/config ./dist/index.bundle.js",
+    "start": "npm run build && nodemon -r dotenv/config ./dist/index.bundle.js",
     "start-dev-debug": "DEBUG=* nodemon -r dotenv/config ./dist/index.bundle.js",
-    "dev:build": "npm run clean && webpack"
+    "build": "npm run clean && webpack"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
