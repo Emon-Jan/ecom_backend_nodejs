@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "development") {
   app.use(logger("dev"));
 }
 
-app.use(cors({ origin: true }));
+app.use(cors());
 app.use(bodyParser.json({ limit: "30mb" }));
 app.use(bodyParser.urlencoded({ extended: false, limit: "30mb" }));
 app.use(cookieParser());
