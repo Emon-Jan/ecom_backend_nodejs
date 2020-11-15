@@ -18,9 +18,7 @@ export const signUp = async (req, res) => {
         password: hash,
       });
       const savedUser = await user.save();
-      return res
-        .status(201)
-        .send(_.pick(savedUser, ["_id", "userId", "phone", "role"]));
+      return res.status(201).send(_.pick(savedUser, ["userId", "role"]));
     }
     return res.status(409).send("Already exists");
   } catch (error) {
@@ -39,11 +37,12 @@ export const loginForAdmin = async (req, res) => {
     const validPass = await bcrypt.compare(password, user.password);
     if (!validPass) return res.status(400).send("Invalid user ID or password");
 
+    const loggedInUser = _.pick(user, ["userId", "role"]);
     const token = user.generateAuthToken();
     res
       .header("x-authentication-token", "bearer " + token)
       .status(201)
-      .send(_.pick(user, ["_id", "userId", "phone"]));
+      .send({ loggedInUser, token });
   } catch (error) {
     res.status(400).send(error);
   }

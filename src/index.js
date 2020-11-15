@@ -1,7 +1,7 @@
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import createError from "http-errors";
-import express from "express";
+import express, { Router } from "express";
 import cors from "cors";
 import logger from "morgan";
 import path from "path";
@@ -13,8 +13,8 @@ const app = express();
 
 app.use(logger("dev"));
 app.use(cors({ origin: true }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ limit: "30mb" }));
+app.use(bodyParser.urlencoded({ extended: false, limit: "30mb" }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 

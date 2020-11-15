@@ -1,5 +1,5 @@
 const devConfig = {
-  DB_URI: process.env.DATABASE_MONGO_URI,
+  DB_URI: process.env.DATABASE_MONGO_URI_LOCAL,
   SECRET_KEY: process.env.SECRET,
 };
 
